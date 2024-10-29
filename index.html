@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="stylesindex.css">
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()" action="products.html" method="get">
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required placeholder="Enter Your Phone Number">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required placeholder="Enter Your Password">
+
+        <button type="submit">Login</button>
+        <p id="error" class="error-message"></p>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        const phone = document.getElementById("phone").value;
+        const password = document.getElementById("password").value;
+        const errorMessage = document.getElementById("error");
+
+        // Validate phone number length
+        if (phone.length !== 10 || isNaN(phone)) {
+            errorMessage.textContent = "Please enter a valid phone number.";
+            return false; // Prevent form submission
+        }
+
+        // Validate password length
+        if (password.length < 8) {
+            errorMessage.textContent = "Password must be at least 8 characters long.";
+            return false; // Prevent form submission
+        }
+
+        errorMessage.textContent = ""; // Clear error message
+        return true; // Allow form submission
+    }
+</script>
+
+</body>
+</html>

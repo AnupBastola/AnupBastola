@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
+    .payment-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+    h2 {
+      color: #333;
+    }
+    .amount {
+      font-size: 24px;
+      color: #4CAF50;
+      margin: 10px 0;
+    }
+    .fonepay-details {
+      font-size: 18px;
+      color: #333;
+      margin: 15px 0;
+    }
+    .upload-section {
+      margin-top: 20px;
+      text-align: left;
+    }
+    .upload-section input[type="file"] {
+      margin-top: 10px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .confirmation-message {
+      display: none;
+      margin-top: 20px;
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-container">
+    <h2>Confirm Payment</h2>
+    <p class="amount">Amount Due: $199.99</p>
+
+    <!-- FonePay Details -->
+    <div class="fonepay-details">
+      <p>Pay via FonePay:</p>
+      <p><strong>Phone Number: 9846166123</strong></p>
+    </div>
+
+    <!-- Upload Payment Proof -->
+    <div class="upload-section">
+      <label for="proof-upload">Upload Payment Proof:</label>
+      <input type="file" id="proof-upload" accept="image/png, image/jpeg, application/pdf">
+    </div>
+
+    <button onclick="submitPaymentProof()">Submit Proof</button>
+
+    <!-- Confirmation Message -->
+    <p class="confirmation-message" id="confirmationMessage">
+      Your order is confirmed and will be delivered within 48 hours.
+    </p>
+  </div>
+
+  <script>
+    function submitPaymentProof() {
+      const fileInput = document.getElementById('proof-upload');
+      const confirmationMessage = document.getElementById('confirmationMessage');
+      
+      if (fileInput.files.length === 0) {
+        alert('Please upload a payment proof.');
+      } else {
+        // Process the file here or submit it to the server
+        alert('Payment proof submitted successfully!');
+        // Show confirmation message
+        confirmationMessage.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
